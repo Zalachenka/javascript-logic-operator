@@ -20,15 +20,16 @@ const hasBuyInLastMonth = true;
 const hasAlreadyBuyShoes = false;
 const hasRegisteredCard = false;
 const hasAppleProduct = true;
+const isAdult = userAge >= 18;
 
 const has10PercentReduction =
-  userAge >= 18 &&
+  isAdult &&
   hasBuyInLastMonth &&
   (hasAlreadyBuyShoes || hasRegisteredCard || hasAppleProduct) &&
   alert('Congratulations ! You are eligible to a 10% discount.');
 
 const has5PercentReduction =
-  userAge >= 18 &&
+  isAdult &&
   hasAlreadyBuyShoes &&
   hasRegisteredCard &&
   !has10PercentReduction &&
@@ -38,7 +39,7 @@ const has2PercentReduction =
   (hasAppleProduct ||
     hasRegisteredCard ||
     hasAlreadyBuyShoes ||
-    (hasAlreadyBuyShoes && userAge >= 18)) &&
+    (hasAlreadyBuyShoes && isAdult)) &&
   alert('Congratulations ! You are eligible to a 2% discount.');
 
 console.log('Final total price: ' + basket + '$');
